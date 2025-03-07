@@ -16,15 +16,16 @@ The pipeline follows these key steps:
 
 ## Technology Stack
 
-- **Docker**: Containerization platform for consistent deployment across environments[^1]
-- **Apache Airflow**: Workflow orchestration tool for scheduling and monitoring data pipelines[^1]
-- **Apache Kafka**: Distributed streaming platform for high-throughput, fault-tolerant data ingestion[^1]
-- **Apache Spark**: Unified analytics engine for large-scale data processing[^1]
-- **Apache Cassandra**: NoSQL database for handling high-velocity data with no single point of failure[^1]
-- **PostgreSQL**: Relational database for structured data storage and Airflow metadata[^1]
+- **Docker**: Containerization platform for consistent deployment across environments
+- **Apache Airflow**: Workflow orchestration tool for scheduling and monitoring data pipelines
+- **Apache Kafka**: Distributed streaming platform for high-throughput, fault-tolerant data ingestion
+- **Apache Spark**: Unified analytics engine for large-scale data processing
+- **Apache Cassandra**: NoSQL database for handling high-velocity data with no single point of failure
+- **PostgreSQL**: Relational database for structured data storage and Airflow metadata
 
 
 ## Architecture
+
 
 
 
@@ -33,7 +34,7 @@ The pipeline follows these key steps:
 - **Ingestion Layer**: External APIs → Kafka topics
 - **Processing Layer**: Kafka → Spark Streaming
 - **Storage Layer**: Processed data → Cassandra (NoSQL) and PostgreSQL (SQL)
-- **Orchestration Layer**: Airflow manages the entire workflow[^1]
+- **Orchestration Layer**: Airflow manages the entire workflow
 
 
 ## Prerequisites
@@ -106,7 +107,7 @@ This command spins up the following containers:
 - Spark Master \& Worker (distributed processing)
 - Cassandra (NoSQL database)
 - Airflow Webserver \& Scheduler
-- PostgreSQL (relational database)[^1]
+- PostgreSQL (relational database)
 
 
 ## Running the Pipeline
@@ -121,12 +122,12 @@ In the Airflow UI, locate the `api_data_pipeline` DAG and click the "Play" butto
 
 - Call external APIs to fetch data
 - Stream the data into Kafka topics
-- Schedule the data processing workflow[^1]
+- Schedule the data processing workflow
 
 
 ### 3. Monitor Kafka streams
 
-Access the Kafka Control Center at `http://localhost:9021` to monitor topics, consumers, and data flow through the system.[^1]
+Access the Kafka Control Center at `http://localhost:9021` to monitor topics, consumers, and data flow through the system.
 
 ### 4. Submit the Spark streaming job
 
@@ -134,7 +135,7 @@ Access the Kafka Control Center at `http://localhost:9021` to monitor topics, co
 spark-submit --master spark://localhost:7077 spark_stream.py
 ```
 
-This starts the Spark streaming application that consumes data from Kafka, processes it according to business logic, and writes results to Cassandra.[^1]
+This starts the Spark streaming application that consumes data from Kafka, processes it according to business logic, and writes results to Cassandra.
 
 ### 5. Verify data in Cassandra
 
@@ -179,17 +180,9 @@ SELECT * FROM processed_data LIMIT 10;
 
 ## References
 
-1. Ganiyu, Y. (2023). "Realtime Data Engineering Project With Airflow, Kafka, Spark, Cassandra and Postgres." [Link](https://github.com/airscholar/e2e-data-engineering)
+1. Ganiyu, Y. (2023). "Realtime Data Engineering Project With Airflow, Kafka, Spark, Cassandra and Postgres."
 2. Apache Kafka Documentation: [https://kafka.apache.org/documentation/](https://kafka.apache.org/documentation/)
 3. Apache Spark Documentation: [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/)
 4. Apache Airflow Documentation: [https://airflow.apache.org/docs/](https://airflow.apache.org/docs/)
 5. Apache Cassandra Documentation: [https://cassandra.apache.org/doc/latest/](https://cassandra.apache.org/doc/latest/)
-
-<div style="text-align: center">⁂</div>
-
-[^1]: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/30770294/b6be5455-b8d8-4e16-b0e4-21db09e108f7/Realtime-Data-Engineering-Project-With-Airflow-Kafka-Spark-Cassandra-and-Postgres-_-by-Yusuf-Ganiyu-Freedium.html
-
-[^2]: https://github.com/shreyashreddyk/api-data-streaming?tab=readme-ov-file
-
-[^3]: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/30770294/b6be5455-b8d8-4e16-b0e4-21db09e108f7/Realtime-Data-Engineering-Project-With-Airflow-Kafka-Spark-Cassandra-and-Postgres-_-by-Yusuf-Ganiyu-Freedium.html
 
