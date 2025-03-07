@@ -25,8 +25,7 @@ The pipeline follows these key steps:
 
 
 ## Architecture
-
-
+Data engineering architecture.png
 
 
 **Data Flow**:
