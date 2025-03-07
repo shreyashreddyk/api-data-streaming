@@ -25,7 +25,7 @@ The pipeline follows these key steps:
 
 
 ## Architecture
-Data engineering architecture.png
+![Data engineering architecture.png](Data%20engineering%20architecture.png)
 
 
 **Data Flow**:
